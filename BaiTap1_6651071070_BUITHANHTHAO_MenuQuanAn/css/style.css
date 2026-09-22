@@ -1,0 +1,472 @@
+/* =========================================================
+   RỄ NÂU COFFEE — style.css
+   Bài 1: Website thực đơn quán cà phê
+   Mỗi vị trí sử dụng selector đặc biệt đều có chú thích loại selector.
+   ========================================================= */
+
+/* ---- SELECTOR: universal (*) ----
+   Reset khoảng cách mặc định và box-sizing cho toàn bộ phần tử */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---- SELECTOR: tag (html, body) ---- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Work Sans", "Segoe UI", sans-serif;
+  color: #2B1D14;
+  background: #F6EFE4;
+  line-height: 1.6;
+}
+
+/* ---- SELECTOR: tag (h1, h2, h3) ---- */
+h1, h2, h3 {
+  font-family: "Fraunces", "Georgia", serif;
+  color: #2B1D14;
+  font-weight: 600;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+/* ---- SELECTOR: class ---- */
+.site-header {
+  background: #2B1D14;
+  color: #F6EFE4;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 3px solid #A6572A;
+}
+
+.header-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* ---- SELECTOR: descendant (.brand img) ---- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.brand img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%; /* border-radius: bo tròn logo */
+  box-shadow: 0 3px 10px rgba(0,0,0,.35); /* box-shadow: đổ bóng logo */
+}
+
+/* ---- SELECTOR: id ---- */
+#trang-chu {
+  scroll-margin-top: 90px;
+}
+
+.brand-text h1 {
+  color: #F6EFE4;
+  font-size: 1.5rem;
+  letter-spacing: .3px;
+}
+
+.slogan {
+  font-size: .82rem;
+  color: #D8C6AE;
+  font-style: italic;
+  margin-top: 2px;
+}
+
+/* ---- SELECTOR: child combinator (nav ul > li) ----
+   Chỉ áp dụng cho các <li> con trực tiếp của <ul> trong nav */
+.main-nav ul > li {
+  list-style: none;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+
+/* ---- SELECTOR: pseudo-class (:hover) ---- */
+.main-nav a {
+  font-size: .92rem;
+  padding: 6px 2px;
+  border-bottom: 2px solid transparent;
+  transition: border-color .2s ease, color .2s ease;
+}
+
+.main-nav a:hover {
+  border-bottom-color: #A6572A;
+  color: #E7B98A;
+}
+
+/* =========================================================
+   HERO
+   background-size, background-position cho ảnh nền banner
+   ========================================================= */
+.hero {
+  background-image: url("../images/hero-bg.svg");
+  background-size: cover;           /* background-size */
+  background-position: center 30%;  /* background-position */
+  background-repeat: no-repeat;
+  color: #F6EFE4;
+  padding: 110px 24px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.hero-eyebrow {
+  color: #E7B98A;
+  font-size: .85rem;
+  letter-spacing: .5px;
+  margin-bottom: 10px;
+}
+
+.hero h2 {
+  color: #F6EFE4;
+  font-size: 2.3rem;
+  line-height: 1.25;
+  margin-bottom: 16px;
+}
+
+.hero p {
+  color: #E4D7C4;
+  margin-bottom: 26px;
+}
+
+.btn-primary {
+  display: inline-block;
+  background: #A6572A;
+  color: #F6EFE4;
+  padding: 12px 28px;
+  border-radius: 999px; /* border-radius */
+  font-weight: 600;
+  box-shadow: 0 8px 20px rgba(166,87,42,.4); /* box-shadow */
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(166,87,42,.5);
+}
+
+/* =========================================================
+   MAIN CONTENT LAYOUT
+   ========================================================= */
+.content-wrap {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 56px 24px 80px;
+}
+
+.page-title {
+  font-size: 1.9rem;
+  margin-bottom: 30px;
+}
+
+.menu-columns {
+  display: grid;
+  grid-template-columns: 2.1fr 1fr;
+  gap: 44px;
+  align-items: start;
+}
+
+/* ---- SELECTOR: class ----
+   background-origin & background-clip cho khối tiêu đề section */
+.menu-section h2 {
+  font-size: 1.4rem;
+  padding: 6px 0 6px 18px;
+  margin-bottom: 22px;
+  border-left: 5px solid #A6572A;
+  background-image: linear-gradient(90deg, rgba(166,87,42,.12), rgba(166,87,42,0));
+  background-origin: content-box;   /* background-origin */
+  background-clip: padding-box;     /* background-clip */
+  padding-left: 18px;
+}
+
+.menu-section {
+  margin-bottom: 46px;
+}
+
+/* =========================================================
+   DISH CARD (article)
+   ========================================================= */
+.dish-card {
+  display: grid;
+  grid-template-columns: 92px 1fr auto;
+  align-items: center;
+  gap: 16px;
+  background: #FFFDF9;
+  border: 1px solid #E9DEC9;
+  border-radius: 16px;              /* border-radius: bo góc card */
+  box-shadow: 0 4px 14px rgba(59,36,21,.07); /* box-shadow: đổ bóng card */
+  padding: 12px 16px;
+  margin-bottom: 14px;
+  transition: box-shadow .2s ease, transform .2s ease;
+}
+
+/* ---- SELECTOR: pseudo-class (:hover) ---- */
+.dish-card:hover {
+  box-shadow: 0 10px 22px rgba(59,36,21,.14);
+  transform: translateY(-2px);
+}
+
+.dish-img {
+  width: 92px;
+  height: 92px;
+  object-fit: cover;
+  border-radius: 12px; /* border-radius: bo góc ảnh món */
+}
+
+.dish-body h3 {
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.dish-body p {
+  font-size: .87rem;
+  color: #6B5847;
+  margin-bottom: 8px;
+}
+
+/* ---- SELECTOR: class ---- */
+.price {
+  font-weight: 600;
+  color: #A6572A;
+  font-size: .95rem;
+}
+
+.btn-order {
+  background: #2B1D14;
+  color: #F6EFE4;
+  border: none;
+  border-radius: 999px;
+  padding: 9px 18px;
+  font-size: .82rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .2s ease;
+}
+
+.btn-order:hover {
+  background: #A6572A;
+}
+
+/* =========================================================
+   ASIDE — "Món được yêu thích trong tuần" + khuyến mãi
+   ========================================================= */
+.sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.favorite-box {
+  background: #2B1D14;
+  color: #F6EFE4;
+  border-radius: 18px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.sidebar-eyebrow {
+  font-size: .78rem;
+  color: #E7B98A;
+  letter-spacing: .4px;
+  margin-bottom: 6px;
+}
+
+.favorite-box h2 {
+  color: #F6EFE4;
+  font-size: 1.25rem;
+  margin-bottom: 18px;
+}
+
+.favorite-list li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ---- SELECTOR: adjacent sibling (li + li) ----
+   Thêm đường phân cách phía trên các item kế tiếp trong danh sách yêu thích */
+.favorite-list li + li {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(246,239,228,.15);
+}
+
+.favorite-list img {
+  width: 46px;
+  height: 46px;
+  border-radius: 10px;
+}
+
+.fav-name {
+  font-size: .88rem;
+}
+
+.fav-price {
+  font-size: .8rem;
+  color: #E7B98A;
+}
+
+/* ---- SELECTOR: class ----
+   border-image cho khung viền trang trí khối khuyến mãi */
+.promo-box {
+  border: 10px solid transparent;
+  border-image: repeating-linear-gradient(
+    45deg,
+    #A6572A 0 10px,
+    #F6EFE4 10px 20px
+  );
+  border-image-slice: 10;
+  padding: 20px;
+  text-align: center;
+  background: #FFFDF9;
+}
+
+.promo-box h3 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+}
+
+.promo-box p {
+  font-size: .85rem;
+  color: #6B5847;
+}
+
+/* =========================================================
+   FOOTER
+   multiple background images: hoạ tiết hạt cà phê + nền màu
+   ========================================================= */
+.site-footer {
+  background-color: #2B1D14;
+  background-image:
+    url("../images/texture.svg"),
+    linear-gradient(180deg, #2B1D14, #201308);
+  background-repeat: repeat, no-repeat;
+  background-size: 120px 120px, cover;
+  color: #E4D7C4;
+  padding: 50px 24px 24px;
+}
+
+.footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding-bottom: 30px;
+}
+
+.footer-col h4 {
+  color: #F6EFE4;
+  font-family: "Fraunces", serif;
+  font-size: 1.05rem;
+  margin-bottom: 12px;
+}
+
+.footer-col p {
+  font-size: .87rem;
+  margin-bottom: 6px;
+  color: #C9B79E;
+}
+
+.socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.socials a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #6B5847;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .72rem;
+  transition: background .2s ease, border-color .2s ease;
+}
+
+.socials a:hover {
+  background: #A6572A;
+  border-color: #A6572A;
+}
+
+/* ---- SELECTOR: pseudo-element (::before) ---- */
+.copyright {
+  text-align: center;
+  font-size: .78rem;
+  color: #8A7867;
+  padding-top: 18px;
+  border-top: 1px solid rgba(246,239,228,.12);
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.copyright::before {
+  content: "☕ ";
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (max-width: 860px) {
+  .menu-columns {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: static;
+  }
+  .footer-inner {
+    grid-template-columns: 1fr;
+  }
+  .hero h2 {
+    font-size: 1.7rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .dish-card {
+    grid-template-columns: 72px 1fr;
+  }
+  .btn-order {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+  .dish-img {
+    width: 72px;
+    height: 72px;
+  }
+}
