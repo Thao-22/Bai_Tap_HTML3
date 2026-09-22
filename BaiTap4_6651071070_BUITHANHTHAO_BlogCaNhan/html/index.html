@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trang giới thiệu bản thân — sinh viên ngành Thiết kế Web. Hồ sơ, kỹ năng, dự án và hành trình học tập.">
+  <title>Thanh Thảo — Web Design Student</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+  <!-- HEADER: sticky -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#trang-chu" class="logo">THẢO.</a>
+      <nav aria-label="Điều hướng chính">
+        <ul>
+          <li><a href="#trang-chu">Trang chủ</a></li>
+          <li><a href="#gioi-thieu">Giới thiệu</a></li>
+          <li><a href="#du-an">Dự án</a></li>
+          <li><a href="#bai-viet">Bài viết</a></li>
+          <li><a href="#lien-he">Liên hệ</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="trang-chu" class="hero">
+    <div class="hero-text">
+      <p class="hero-greeting">Xin chào! Mình là</p>
+      <h1>Bùi Thanh Thảo</h1>
+      <p class="hero-cycle">
+        <span class="cycle-word">Sinh viên Thiết kế Web</span>
+        <span class="cycle-word">Front-end Developer</span>
+        <span class="cycle-word">UI/UX Enthusiast</span>
+      </p>
+      <p class="hero-desc">Đang ở năm thứ hai của hành trình CNTT, mình thích vai trò của một người kết nối: gom nhặt những ý tưởng ngẫu hứng và dệt nên những giao diện có nhịp điệu, ngăn nắp và tràn đầy sự tinh tế trong từng tương tác</p>
+      <div class="hero-cta">
+        <a href="#du-an" class="btn btn-solid">Xem hồ sơ</a>
+        <a href="#lien-he" class="btn btn-outline">Liên hệ tôi</a>
+      </div>
+    </div>
+    <div class="hero-portrait">
+      <img src="../images/logo.jpg" alt="Ảnh chân dung">
+    </div>
+  </section>
+
+  <main>
+
+    <!-- GIỚI THIỆU BẢN THÂN -->
+    <section id="gioi-thieu" class="about">
+      <h2 class="section-title">Giới thiệu bản thân</h2>
+      <div class="about-grid">
+        <p class="about-text">
+          Mình đang học tại <strong>Trường Đại học Giao Thông Vận Tải Phân Hiệu TPHCM</strong>, ngành
+          <em>Công Nghệ Thông Tin</em>, định hướng <strong>Thiết kế &amp; Phát triển giao diện Web</strong>.
+          Mình bắt đầu với <span class="highlight">HTML/CSS</span> từ năm hai, và từ đó vẫn giữ thói quen
+          "vẽ lại" các trang mình thích để hiểu vì sao chúng đẹp. Ngoài giờ học, mình dành thời gian cho
+          nhiếp ảnh đường phố và đọc sách về kiểu chữ. Mình tin rằng một giao diện tốt bắt đầu từ
+          <a href="#du-an">sự quan sát</a>, không phải từ khuôn mẫu có sẵn.
+        </p>
+
+        <div class="interests">
+          <h3>Ngoài giờ học</h3>
+          <ul class="interests-cols">
+            <li>Thể thao</li>
+            <li>Âm nhạc &amp; Nghệ thuật</li>
+            <li>Trà sữa</li>
+            <li>Ngoại ngữ</li>
+            <li>Đọc sách</li>
+            <li>Du lịch &amp; Văn hóa</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- KỸ NĂNG -->
+    <section id="ky-nang" class="skills">
+      <h2 class="section-title">Kỹ năng &amp; Công cụ</h2>
+      <div class="skill-grid">
+        <span class="pill">HTML5</span>
+        <span class="pill">CSS3</span>
+        <span class="pill">JavaScript</span>
+        <span class="pill">Figma</span>
+        <span class="pill">Git &amp; GitHub</span>
+        <span class="pill">React (cơ bản)</span>
+        <span class="pill">Responsive Design</span>
+        <span class="pill">Photoshop</span>
+        <span class="pill">Accessibility</span>
+      </div>
+    </section>
+
+    <!-- DỰ ÁN -->
+    <section id="du-an" class="projects">
+      <h2 class="section-title">Dự án &amp; hoạt động nổi bật</h2>
+      <div class="project-grid">
+        <article class="project-card">
+          <img src="../images/project1.svg" alt="Dự án Website menu quán cà phê">
+          <div class="project-body">
+            <h3>Website Menu Quán Cà Phê</h3>
+            <p>Bài tập thực hành CSS3: xây dựng trang thực đơn hoàn chỉnh với border-image và background layer.</p>
+            <a href="#" class="project-link">Xem chi tiết →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="../images/project2.svg" alt="Dự án Ứng dụng quản lý thời gian">
+          <div class="project-body">
+            <h3>App Quản Lý Thời Gian Học Tập</h3>
+            <p>Đồ án nhóm: giao diện lên lịch học và nhắc việc, thiết kế trên Figma trước khi code.</p>
+            <a href="#" class="project-link">Xem chi tiết →</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <img src="../images/project3.svg" alt="Dự án Bộ nhận diện thương hiệu cá nhân">
+          <div class="project-body">
+            <h3>Bộ Nhận Diện Cá Nhân</h3>
+            <p>Thiết kế logo, bảng màu và hệ chữ dùng xuyên suốt các sản phẩm cá nhân của mình.</p>
+            <a href="#" class="project-link">Xem chi tiết →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- HÀNH TRÌNH -->
+    <section id="hanh-trinh" class="journey">
+      <h2 class="section-title">Hành trình</h2>
+      <ol class="timeline">
+        <li>
+          <span class="timeline-year">2025</span>
+          <div class="timeline-content">
+            <h3>Bắt đầu đại học</h3>
+            <p>Nhập học ngành Kỹ thuật phần mềm, làm quen với những dòng code đầu tiên.</p>
+          </div>
+        </li>
+        <li>
+          <span class="timeline-year">2026</span>
+          <div class="timeline-content">
+            <h3>Dự án web đầu tiên</h3>
+            <p>Xây dựng trang portfolio cá nhân đầu tiên, học Figma để phác thảo trước khi code.</p>
+          </div>
+        </li>
+        <li>
+          <span class="timeline-year">2027</span>
+          <div class="timeline-content">
+            <h3>Thực tập front-end</h3>
+            <p>Tham gia thực tập tại một studio thiết kế nhỏ, làm việc với các dự án thực tế.</p>
+          </div>
+        </li>
+        <li>
+          <span class="timeline-year">2027</span>
+          <div class="timeline-content">
+            <h3>Hiện tại</h3>
+            <p>Hoàn thiện đồ án tốt nghiệp, tập trung vào CSS3 nâng cao và trải nghiệm người dùng.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- BÀI VIẾT + ASIDE -->
+    <section id="bai-viet" class="blog-layout">
+      <div class="blog-main">
+        <h2 class="section-title">Bài viết gần đây</h2>
+
+        <article class="blog-post">
+          <h3>Vì sao mình học lại CSS Selector từ đầu</h3>
+          <p class="blog-meta">12/09/2026 · Ghi chú học tập</p>
+          <p>Sau hai năm code theo thói quen, mình quay lại đọc kỹ về descendant, child combinator và pseudo-class — và nhận ra mình đã bỏ lỡ rất nhiều công cụ hữu ích...</p>
+        </article>
+
+        <article class="blog-post">
+          <h3>Một buổi chiều thiết kế lại portfolio</h3>
+          <p class="blog-meta">02/09/2026 · Nhật ký thiết kế</p>
+          <p>Ghi lại quá trình chọn bảng màu, kiểu chữ, và vì sao mình bỏ mẫu "card bo tròn giống hệt nhau" để tìm một bố cục riêng cho trang cá nhân...</p>
+        </article>
+      </div>
+
+      <aside class="blog-aside">
+        <h3>Kết nối với mình</h3>
+        <ul class="social-list">
+          <li><a href="#">GitHub — @annguyen.dev</a></li>
+          <li><a href="#">LinkedIn — Nguyễn Minh An</a></li>
+          <li><a href="#">Behance — portfolio thiết kế</a></li>
+        </ul>
+      </aside>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="lien-he" class="site-footer">
+    <div class="footer-inner">
+      <p>© 2026 Bùi Thanh Thảo. Được thiết kế và xây dựng thủ công.</p>
+      <div class="footer-right">
+        <a href="#">GitHub</a>
+        <a href="#">LinkedIn</a>
+        <a href="#" class="back-to-top">Về đầu trang ↑</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
