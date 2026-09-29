@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Câu 23 - Tính lương tháng</title>
+<link rel="stylesheet" href="Styles/style.css">
+<script src="Scripts/cau23.js"></script>
+</head>
+<body>
+<form onsubmit="return false;">
+<table class="luong" border="3">
+  <tr><td>Lương</td><td><input type="text" id="luong" value="1000000"></td></tr>
+  <tr><td>Hệ số lương</td>
+      <td><select id="heso">
+        <option>1.5</option><option>2.0</option><option>2.5</option>
+        <option selected>3.2</option><option>3.5</option><option>4.0</option>
+      </select></td></tr>
+  <tr><td colspan="2" align="center"><button type="button" onclick="tinhLuong()">Tính lương tháng</button></td></tr>
+  <tr><td>Lương tháng</td><td id="kq"></td></tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,9 @@
+body{font-family:Arial,sans-serif;margin:20px;background:#fafafa}
+table{border-collapse:collapse}
+td,th{padding:6px 10px}
+input,select,button{padding:4px 8px;font-size:15px}
+button{cursor:pointer}
+.box{display:inline-block;border:1px solid #999;padding:12px;background:#fff}
+.err{color:red}
+.canchi{background:#ccffff;border:1px solid #66cccc;font-size:18px}
+.canchi .tieude{background:#ffffcc;font-size:22px}

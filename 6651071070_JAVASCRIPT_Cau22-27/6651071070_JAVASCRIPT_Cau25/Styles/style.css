@@ -1,0 +1,13 @@
+body{font-family:Arial,sans-serif;margin:20px;background:#fafafa}
+table{border-collapse:collapse}
+td,th{padding:6px 10px}
+input,select,button{padding:4px 8px;font-size:15px}
+button{cursor:pointer}
+.box{display:inline-block;border:1px solid #999;padding:12px;background:#fff}
+.err{color:red}
+.menu{background:#ccff00;text-align:center}
+.menu .xanh th{color:#0000ff}
+.menu select{width:130px}
+#kq table{width:100%;background:#aaffff;border:2px solid #660000}
+#kq td,#kq th{border:1px solid #660000;text-align:left}
+#kq th{color:#0000ff;text-align:center}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Câu 27 - Xóa dòng trong bảng</title>
+<link rel="stylesheet" href="Styles/style.css">
+<script src="Scripts/cau27.js"></script>
+</head>
+<body>
+<table id="bang" class="ds" border="1" width="560">
+  <thead><tr><th>Số lượng</th><th>Đơn giá</th><th>Tổng</th><th>Chức năng</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><input type="text" value="2" oninput="capNhat(this)"></td>
+      <td><input type="text" value="1000000" oninput="capNhat(this)"></td>
+      <td><input type="text" value="2000000" readonly></td>
+      <td><button type="button" onclick="xoaDong(this)">Xóa</button></td>
+    </tr>
+    <tr>
+      <td><input type="text" value="1" oninput="capNhat(this)"></td>
+      <td><input type="text" value="500000" oninput="capNhat(this)"></td>
+      <td><input type="text" value="500000" readonly></td>
+      <td><button type="button" onclick="xoaDong(this)">Xóa</button></td>
+    </tr>
+  </tbody>
+</table>
+</body>
+</html>

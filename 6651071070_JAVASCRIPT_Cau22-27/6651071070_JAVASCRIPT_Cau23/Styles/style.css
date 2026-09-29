@@ -1,0 +1,8 @@
+body{font-family:Arial,sans-serif;margin:20px;background:#fafafa}
+table{border-collapse:collapse}
+td,th{padding:6px 10px}
+input,select,button{padding:4px 8px;font-size:15px}
+button{cursor:pointer}
+.box{display:inline-block;border:1px solid #999;padding:12px;background:#fff}
+.err{color:red}
+.luong{background:#ffcc99;border-color:#000099;font-weight:bold}

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Câu 26 - Can chi âm lịch</title>
+<link rel="stylesheet" href="Styles/style.css">
+<script src="Scripts/cau26.js"></script>
+</head>
+<body>
+<form onsubmit="return false;">
+<table class="canchi" width="520">
+  <tr><th colspan="3" class="tieude">TÍNH CAN CHI CỦA NGÀY ÂM LỊCH</th></tr>
+  <tr><td>Năm dương lịch</td><td></td><td>Can chi năm âm lịch</td></tr>
+  <tr>
+    <td><input type="text" id="nam" value="2015"></td>
+    <td><button type="button" onclick="tinhCanChi()">---&gt;</button></td>
+    <td><input type="text" id="kq" readonly></td>
+  </tr>
+  <tr><td colspan="3" id="loi" class="err"></td></tr>
+</table>
+</form>
+</body>
+</html>

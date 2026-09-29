@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<title>Câu 24 - Xuất thứ trong tuần</title>
+<link rel="stylesheet" href="Styles/style.css">
+<script src="Scripts/cau24.js"></script>
+</head>
+<body>
+<form onsubmit="return false;">
+<table class="thu" border="3" width="600">
+  <tr><td>Ngày <input type="text" id="ngay" size="6" value="12">
+      &nbsp; Tháng Select: <select id="thang"></select>
+      &nbsp; năm <input type="text" id="nam" size="8" value="2015"></td></tr>
+  <tr><td align="center"><button type="button" onclick="xuatThu()">Xuất thứ</button></td></tr>
+  <tr><td align="center" id="kq">&nbsp;</td></tr>
+</table>
+</form>
+<script>
+  var s = document.getElementById("thang");
+  for (var i = 1; i <= 12; i++) s.options[s.options.length] = new Option(i, i);
+</script>
+</body>
+</html>
