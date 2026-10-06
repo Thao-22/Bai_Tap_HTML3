@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+        body { margin: 30px; }
+    </style>
+    <meta charset="utf-8" />
+    <title>Remove items from a dropdown list using jQuery & DOM</title>
+    <!-- Nhúng thư viện jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<form>
+    <select id="colorSelect">
+        <option>Red</option>
+        <option>Green</option>
+        <option>White</option>
+        <option>Black</option>
+    </select>
+    <input type="button" id="btnRemove" value="Select and Remove">
+</form>
+
+<script>
+    $(document).ready(function() {
+        // Xử lý bằng jQuery
+        $('#btnRemove').click(function() {
+            // Tìm option đang được chọn trong #colorSelect và xóa nó
+            $('#colorSelect option:selected').remove();
+        });
+    });
+</script>
+
+</body>
+</html>

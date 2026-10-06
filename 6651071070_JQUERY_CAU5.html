@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <title>Show Random Image with jQuery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        #imageContainer {
+            margin-top: 20px;
+        }
+    </style>
+    <!-- Nhúng thư viện jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <button id="btnShow">Show Image</button>
+
+    <!-- Khu vực hiển thị ảnh -->
+    <div id="imageContainer"></div>
+
+    <script>
+        // 1. Mảng chứa danh sách các đối tượng hình ảnh
+        var imagesList = [
+            {
+                src: "http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg",
+                width: 240,
+                height: 160
+            },
+            {
+                src: "http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg",
+                width: 320,
+                height: 195
+            },
+            {
+                src: "http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg",
+                width: 500,
+                height: 343
+            }
+        ];
+
+        $(document).ready(function() {
+            // 2. Bắt sự kiện click vào nút bằng jQuery
+            $('#btnShow').click(function() {
+                // Lấy chỉ số ngẫu nhiên từ 0 đến imagesList.length - 1
+                var randomIndex = Math.floor(Math.random() * imagesList.length);
+                var randomImg = imagesList[randomIndex];
+
+                // 3. Tạo thẻ <img> mới và gán các thuộc tính bằng jQuery
+                var $imgTag = $('<img>', {
+                    src: randomImg.src,
+                    width: randomImg.width,
+                    height: randomImg.height,
+                    alt: "Random Image"
+                });
+
+                // 4. Hiển thị ảnh vào container (thay thế nội dung cũ)
+                $('#imageContainer').html($imgTag);
+            });
+        });
+    </script>
+
+</body>
+</html>

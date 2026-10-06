@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 9 - Form Validation Exercise</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .form-container {
+            border: 1px solid #ccc;
+            width: 450px;
+            padding: 20px;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+        .form-title { text-align: center; color: darkgreen; margin-top: 0; }
+        .form-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .form-group label { width: 45%; text-align: right; margin-right: 10px; font-size: 14px; }
+        .form-group input, .form-group select { width: 50%; padding: 4px; }
+        .form-group .radio-group { width: 50%; display: flex; gap: 10px; }
+        .btn-group { text-align: center; margin-top: 15px; }
+        .btn-group input { padding: 5px 15px; margin: 0 5px; cursor: pointer; }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<div class="form-container">
+    <h3 class="form-title">Personal Information</h3>
+    <form id="regForm">
+        <div class="form-group">
+            <label>Enter name*:</label>
+            <input type="text" id="fullname" class="required">
+        </div>
+        <div class="form-group">
+            <label>Sex*:</label>
+            <div class="radio-group">
+                <label><input type="radio" name="sex" value="Male"> Male</label>
+                <label><input type="radio" name="sex" value="Female"> Female</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Enter email address*:</label>
+            <input type="text" id="email" class="required">
+        </div>
+        <div class="form-group">
+            <label>Enter birthday (MM/DD/YYYY)*:</label>
+            <input type="text" id="birthday" class="required">
+        </div>
+        <div class="form-group">
+            <label>Enter street address (line 1)*:</label>
+            <input type="text" id="address" class="required">
+        </div>
+        <div class="form-group">
+            <label>Enter city*:</label>
+            <input type="text" id="city" class="required">
+        </div>
+        <div class="form-group">
+            <label>Select a region*:</label>
+            <select id="region" class="required">
+                <option value="">-- Choose Region --</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="America">America</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Enter 5-digit ZIP code*:</label>
+            <input type="text" id="zipcode" class="required">
+        </div>
+        <div class="btn-group">
+            <input type="button" id="btnFinish" value="Finished">
+            <input type="button" id="btnClear" value="Clear">
+        </div>
+    </form>
+</div>
+
+<script>
+$(document).ready(function() {
+
+    // 1. Chức năng CLEAR nút xóa tất cả dữ liệu
+    $('#btnClear').click(function() {
+        $('#regForm')[0].reset();
+    });
+
+    // 2. Chức năng FINISHED kiểm tra (validate) dữ liệu
+    $('#btnFinish').click(function() {
+
+        // a. Kiểm tra không được trống đối với các trường có dấu *
+        var name = $('#fullname').val().trim();
+        var email = $('#email').val().trim();
+        var birthday = $('#birthday').val().trim();
+        var address = $('#address').val().trim();
+        var city = $('#city').val().trim();
+        var region = $('#region').val();
+        var zipcode = $('#zipcode').val().trim();
+        var sex = $('input[name="sex"]:checked').val();
+
+        if (!name || !sex || !email || !birthday || !address || !city || !region || !zipcode) {
+            alert("Vui lòng điền đầy đủ tất cả các trường có dấu (*)");
+            return;
+        }
+
+        // b. Validate EMAIL
+        // - Đúng 1 dấu @
+        var atIndex = email.indexOf('@');
+        var lastAtIndex = email.lastIndexOf('@');
+        if (atIndex === -1 || atIndex !== lastAtIndex) {
+            alert("Email phải chứa đúng 1 ký tự @!");
+            return;
+        }
+
+        var account = email.substring(0, atIndex);
+        var domain = email.substring(atIndex + 1);
+
+        // - Phía trước @ (account) có tối đa 1 dấu chấm
+        var accountDots = (account.match(/\./g) || []).length;
+        if (accountDots > 1) {
+            alert("Tên account trước ký tự @ chỉ được phép có tối đa 1 dấu chấm (.)!");
+            return;
+        }
+
+        // - Phía sau @ (domain) phải có ít nhất 1 dấu chấm
+        var domainDots = (domain.match(/\./g) || []).length;
+        if (domainDots < 1) {
+            alert("Tên domain sau ký tự @ phải có ít nhất 1 dấu chấm (.)!");
+            return;
+        }
+
+        // c. Validate NGÀY SINH (MM/DD/YYYY hoặc MM-DD-YYYY)
+        var dateRegex = /^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/;
+        var match = birthday.match(dateRegex);
+
+        if (!match) {
+            alert("Ngày sinh phải đúng định dạng MM/DD/YYYY hoặc MM-DD-YYYY!");
+            return;
+        }
+
+        var month = parseInt(match[1], 10);
+        var day = parseInt(match[2], 10);
+        var year = parseInt(match[3], 10);
+        var currentYear = new Date().getFullYear();
+
+        if (month < 1 || month > 12) {
+            alert("Tháng sinh phải từ 1 đến 12!");
+            return;
+        }
+
+        if (day < 1 || day > 31) {
+            alert("Ngày sinh không hợp lệ!");
+            return;
+        }
+
+        if (year >= currentYear) {
+            alert("Năm sinh phải nhỏ hơn năm hiện tại (" + currentYear + ")!");
+            return;
+        }
+
+        // d. Validate ZIP CODE (Đúng 5 chữ số)
+        var zipRegex = /^\d{5}$/;
+        if (!zipRegex.test(zipcode)) {
+            alert("ZIP code phải gồm đúng 5 chữ số!");
+            return;
+        }
+
+        // Thành công
+        alert("Đăng ký thành công!");
+    });
+});
+</script>
+
+</body>
+</html>
