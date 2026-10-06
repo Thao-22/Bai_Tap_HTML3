@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <title>Show Random Image</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 30px;
+        }
+        #imageContainer {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="showImage()">Show Image</button>
+
+    <!-- Khu vực dùng để hiển thị hình ảnh -->
+    <div id="imageContainer"></div>
+
+    <script>
+        // 1. Tạo mảng chứa danh sách các đối tượng hình ảnh bao gồm src, width, height
+        var imagesList = [
+            {
+                src: "http://farm4.staticflickr.com/3691/11268502654_f28f05966c_m.jpg",
+                width: 240,
+                height: 160
+            },
+            {
+                src: "http://farm1.staticflickr.com/33/45336904_1aef569b30_n.jpg",
+                width: 320,
+                height: 195
+            },
+            {
+                src: "http://farm6.staticflickr.com/5211/5384592886_80a512e2c9.jpg",
+                width: 500,
+                height: 343
+            }
+        ];
+
+        function showImage() {
+            // 2. Lấy chỉ số (index) ngẫu nhiên từ 0 đến imagesList.length - 1
+            var randomIndex = Math.floor(Math.random() * imagesList.length);
+            
+            // 3. Lấy ra đối tượng ảnh ngẫu nhiên
+            var selectedImage = imagesList[randomIndex];
+
+            // 4. Lấy thẻ chứa ảnh
+            var container = document.getElementById("imageContainer");
+
+            // 5. Cập nhật thẻ <img> vào container với các thuộc tính src, width, height tương ứng
+            container.innerHTML = '<img src="' + selectedImage.src + 
+                                  '" width="' + selectedImage.width + 
+                                  '" height="' + selectedImage.height + 
+                                  '" alt="Random Image">';
+        }
+    </script>
+
+</body>
+</html>
