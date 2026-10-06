@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuyển hướng đến đường link</title>
+    <!-- Nhúng thư viện jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h1>Nhập đường link và nhấn "Submit" để chuyển hướng:</h1>
+    <form id="linkForm">
+        <input type="text" id="linkInput" placeholder="Nhập đường link (VD: https://google.com)">
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            // Bắt sự kiện submit form bằng jQuery
+            $('#linkForm').submit(function(event) {
+                // 1. Luôn luôn chặn reload/chuyển trang mặc định của form
+                event.preventDefault();
+
+                // 2. Lấy đường dẫn từ ô input và xóa khoảng trắng thừa ở 2 đầu
+                var url = $('#linkInput').val().trim();
+
+                // Kiểm tra nếu người dùng chưa nhập gì
+                if (url === "") {
+                    alert("Vui lòng nhập đường link!");
+                    return;
+                }
+
+                // Tự động thêm tiền tố "https://" nếu người dùng chỉ nhập tên miền (VD: google.com)
+                if (!url.startsWith('http://') && !url.startsWith('https://')) {
+                    url = 'https://' + url;
+                }
+
+                // 3. Hiển thị dialog confirm hỏi người dùng
+                var userConfirmed = confirm("Bạn có chắc chắn muốn truy cập đường dẫn:\n" + url + " ?");
+
+                // 4. Xử lý dựa trên lựa chọn
+                if (userConfirmed) {
+                    // Nếu bấm OK -> Chuyển hướng sang liên kết đã nhập
+                    window.location.href = url;
+                } else {
+                    // Nếu bấm Cancel -> Không thực hiện gì cả
+                    console.log("Người dùng đã hủy chuyển hướng.");
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

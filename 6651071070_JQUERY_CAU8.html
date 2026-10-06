@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Câu 8 - Máy tính jQuery</title>
+    <style>
+        .calculator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-family: Arial, sans-serif;
+        }
+        .calculator input {
+            width: 60px;
+            padding: 5px;
+            text-align: center;
+        }
+        .calculator button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+    <!-- Nhúng jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h2>Máy tính đơn giản</h2>
+    <div class="calculator">
+        <input type="number" id="num1" value="12">
+        <button class="btn-op" data-op="+">+</button>
+        <button class="btn-op" data-op="-">-</button>
+        <button class="btn-op" data-op="*">x</button>
+        <button class="btn-op" data-op="/">/</button>
+        <button class="btn-op" data-op="^">^</button>
+        <input type="number" id="num2" value="14">
+        <span>=</span>
+        <input type="text" id="result" readonly style="width: 80px;">
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('.btn-op').click(function() {
+                // Lấy giá trị từ 2 ô input
+                var val1 = parseFloat($('#num1').val());
+                var val2 = parseFloat($('#num2').val());
+                var op = $(this).data('op');
+                var res = 0;
+
+                if (isNaN(val1) || isNaN(val2)) {
+                    alert("Vui lòng nhập đầy đủ 2 số!");
+                    return;
+                }
+
+                // Xử lý các phép tính
+                switch(op) {
+                    case '+': res = val1 + val2; break;
+                    case '-': res = val1 - val2; break;
+                    case '*': res = val1 * val2; break;
+                    case '/': 
+                        if (val2 === 0) {
+                            alert("Không thể chia cho 0!");
+                            return;
+                        }
+                        res = val1 / val2; 
+                        break;
+                    case '^': res = Math.pow(val1, val2); break;
+                }
+
+                // Hiển thị kết quả
+                $('#result').val(res);
+            });
+        });
+    </script>
+
+</body>
+</html>

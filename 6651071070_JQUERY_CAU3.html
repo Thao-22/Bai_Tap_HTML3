@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Insert row in a table using DOM & jQuery</title>
+    <style>
+        table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+    </style>
+    <!-- Nhúng thư viện jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<table id="sampleTable">
+    <tr>
+        <td>Row1 cell1</td>
+        <td>Row1 cell2</td>
+    </tr>
+    <tr>
+        <td>Row2 cell1</td>
+        <td>Row2 cell2</td>
+    </tr>
+</table>
+<br>
+<input type="button" id="btnInsert" value="Insert Row">
+
+<script>
+    $(document).ready(function() {
+        // Xử lý sự kiện click nút bấm bằng jQuery
+        $('#btnInsert').click(function() {
+            
+            // --- CÁCH 1: Sử dụng jQuery (Ngắn gọn) ---
+            var rowCountQuery = $('#sampleTable tr').length + 1;
+            var newRowQuery = '<tr><td>Row' + rowCountQuery + ' cell1</td><td>Row' + rowCountQuery + ' cell2</td></tr>';
+            $('#sampleTable').append(newRowQuery);
+
+        });
+    });
+</script>
+
+</body>
+</html>

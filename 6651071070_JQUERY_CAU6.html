@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Count dropdown list items using jQuery</title>
+    <!-- Nhúng thư viện jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <form>
+        <label>Select your favorite Color : </label>
+        <select id="colorSelect">
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="white">White</option>
+        </select>
+        <br><br>
+        <input type="button" id="btnCount" value="Count Items">
+    </form>
+
+    <script>
+        $(document).ready(function() {
+            // Xử lý sự kiện click nút bấm bằng jQuery
+            $('#btnCount').click(function() {
+                // 1. Đếm số lượng option bên trong #colorSelect
+                var itemCountQuery = $('#colorSelect option').length;
+
+                // 2. Hiển thị thông báo bằng hộp thoại alert
+                alert("Tổng số mục trong danh sách là: " + itemCountQuery);
+            });
+
+            /* 
+            // CÁCH TƯƠNG ĐƯƠNG BẰNG JS DOM THUẦN:
+            var selectBox = document.getElementById('colorSelect');
+            var itemCountDOM = selectBox.options.length;
+            alert("Tổng số mục trong danh sách là: " + itemCountDOM);
+            */
+        });
+    </script>
+
+</body>
+</html>

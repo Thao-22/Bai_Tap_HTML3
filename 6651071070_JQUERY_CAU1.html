@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>JS & jQuery DOM paragraph style</title>
+    <!-- Nhúng thư viện jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <p id="text">JavaScript Exercises - w3resource</p>
+    <div>
+        <button id="jsstyle">Style</button>
+    </div>
+
+    <script>
+        // Sử dụng jQuery xử lý sự kiện click
+        $(document).ready(function() {
+            $('#jsstyle').click(function() {
+                $('#text').css({
+                    'font-size': '24px',
+                    'font-family': 'Arial, sans-serif',
+                    'color': '#007bff'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
