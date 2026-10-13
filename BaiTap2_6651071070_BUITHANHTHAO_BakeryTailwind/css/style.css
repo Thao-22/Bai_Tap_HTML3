@@ -1,0 +1,28 @@
+/* CSS bổ sung cho phần Tailwind chưa hỗ trợ sẵn (Tailwind Play CDN không có animation tuỳ biến) */
+
+/* Cuộn mượt khi bấm link neo */
+html { scroll-behavior: smooth; }
+
+/* Animation tuỳ biến: bánh ở hero trôi lên nhẹ lúc tải trang (chỉ chạy 1 lần) */
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+#trang-chu img { animation: rise-in 0.8s ease-out both; }
+
+/* Link đang active khi cuộn (class do script.js thêm vào) */
+.nav-link.is-active {
+  color: #b45309;               /* amber-700 */
+  border-bottom: 2px solid #d97706;
+  padding-bottom: 2px;
+}
+
+/* Thanh cuộn màu nâu ấm */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb { background: #d9a867; border-radius: 8px; }
+
+/* Tôn trọng người dùng tắt hiệu ứng chuyển động */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  #trang-chu img { animation: none; }
+}
